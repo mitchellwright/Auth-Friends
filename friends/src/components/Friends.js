@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Friends = () => {
@@ -16,9 +17,13 @@ const Friends = () => {
   // Get all friends from the API /friends
   useEffect(() => {
     getFriends();
-  }, []);
+  }, [friends]);
 
-  // TODO Add for to create new friend
+  // TODO Add form to create new friend
+  // TODO Create page that displays single user
+  // TODO Allow for deletion of user
+  // TODO Allow for editing of user
+
   return (
     <div>
       <h1>Hello Friends</h1>
@@ -28,6 +33,7 @@ const Friends = () => {
             <h3>{friend.name}</h3>
             <p>{friend.email}</p>
             <p>{friend.age}</p>
+            <img src={friend.photoUrl} alt={friend.name} />
           </div>
         );
       })}
